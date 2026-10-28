@@ -23,21 +23,54 @@ All rules are set to `suggestion` in `.editorconfig`, so the project builds clea
 
 ## What is where
 
-| File | Quick actions it exercises |
+The project folders mirror the .NET code analysis categories, and each namespace matches its folder (IDE0130). Everything lives under `src/RefactoringPlayground/`.
+
+### `CodeStyle/` (IDE rules)
+
+| Folder | Files | Rules |
+|---|---|---|
+| `CodeBlock/` | `BraceExamples` | IDE0011 always use braces, even for one-line `if` / `else` / `foreach` / `for` / `while` / `do` / `using` / `lock` bodies |
+| `ExpressionLevel/` | `AssignmentExamples`, `InitializationExamples`, `DelegateExamples`, `ConditionalExamples` | IDE0054, IDE0180, IDE0018, IDE0042, IDE0059, IDE0017, IDE0028, IDE0300 / IDE0301 / IDE0305, IDE1005, IDE0200, IDE0039, IDE0062, IDE0320, IDE0053, IDE0350, IDE0045 / IDE0046 and more |
+| | `RangeIndexExamples` | IDE0056 index operator, IDE0057 range operator |
+| | `LinqExamples` | IDE0120 simplify LINQ expression, IDE0121 simplify LINQ type check and cast (`OfType<T>()`), IDE0220 explicit cast in `foreach` |
+| | `ConditionalSimplificationExamples` | IDE0075 simplify conditional expression, IDE0100, IDE0045, IDE0046 |
+| | `NameofExamples` | IDE0082 `typeof` to `nameof`, IDE0280 `nameof` in attributes, CA1507 |
+| | `SimplifyNewExamples` | IDE0090 simplify `new` expression |
+| `PatternMatching/` | `PatternMatchingExamples` | IDE0066, IDE0019, IDE0020 / IDE0038, IDE0078, IDE0083, IDE0170 |
+| | `NullCheckOverTypeCheckExamples` | IDE0150 prefer `null` check over type check, IDE0041 |
+| `NullChecking/` | `NullHandlingExamples` | IDE0029 / IDE0030 `??`, IDE0074 `??=`, IDE0270, IDE0031, IDE0016 |
+| | `NullPropagationExamples` | IDE0031 null propagation (`?.`, `?[]`) |
+| | `NullCheckSimplificationExamples` | IDE0029 / IDE0030 / IDE0270 / IDE0074 null check simplification, IDE0016 throw expression |
+| `Members/` | `ClassStructureExamples` | IDE0290, IDE0032, IDE0044, IDE0021 / IDE0022 / IDE0025 / IDE0027 |
+| `ModernCSharp/` | `CSharp14Examples` | `field` keyword, `?.=`, IDE0340, IDE0330, extension blocks |
+| `UnnecessaryCode/` | `LegacyStyleExamples`, `UnusedCodeExamples` | IDE0161, IDE0065, IDE0005, IDE0003, IDE0004, IDE0034, IDE0036, IDE0037, IDE0040, IDE0047, IDE0049, IDE0051, IDE0052, IDE0058, IDE0059, IDE0060 |
+| `Formatting/` | `WrappingExamples` | IDE0055 wrapping (`csharp_preserve_single_line_statements` / `_blocks`), IDE2000, IDE2001, IDE2003 |
+| `Naming/` | `NamingExamples` | IDE1006 naming rules (interfaces, private fields, constants, async suffix, parameters) |
+| `Miscellaneous/` | `SuppressionExamples` | IDE0079 unnecessary suppression |
+
+### `CodeQuality/` (CA rules)
+
+| Folder | Rules |
 |---|---|
-| `PatternMatchingExamples.cs` | IDE0066 switch statement to expression, if/else chain to switch, IDE0019 / IDE0020 / IDE0038 `as` and `is` + cast, IDE0078 `or` / `and` patterns, IDE0083 `is not`, IDE0041, IDE0150, IDE0170 |
-| `NullHandlingExamples.cs` | IDE0029 / IDE0030 `??`, IDE0074 `??=`, IDE0270, IDE0031 `?.`, IDE0016 throw expression |
-| `AssignmentExamples.cs` | IDE0054 compound assignment, IDE0180 tuple swap, IDE0018 inline `out`, IDE0042 deconstruction, IDE0059 unnecessary assignment, foreach to LINQ |
-| `InitializationExamples.cs` | IDE0017 object initializer, IDE0028 collection initializer, IDE0090 target-typed `new()`, IDE0300 / IDE0301 / IDE0305 collection expressions |
-| `DelegateExamples.cs` | IDE1005 `handler?.Invoke`, IDE0200 remove unnecessary lambda, IDE0039, IDE0062, IDE0320, IDE0053, IDE0350 |
-| `ConditionalExamples.cs` | IDE0045 / IDE0046, merge nested `if`, merge consecutive `if`, IDE0075, IDE0100, IDE0048, IDE0011, IDE0056 / IDE0057, IDE0120, for to foreach, IDE0063, interpolated strings, IDE0071, IDE0082 |
-| `GuardClauseExamples.cs` | CA1510 / CA1511 / CA1512 / CA1513 throw helpers, invert `if` to flatten arrow code |
-| `ClassStructureExamples.cs` | IDE0290 primary constructor, IDE0032 auto property, IDE0044 readonly field, IDE0021 / IDE0022 / IDE0025 / IDE0027 expression bodies |
-| `CSharp14Examples.cs` | `field` keyword, `?.=`, IDE0340 `nameof(List<>)`, IDE0330 `Lock`, extension block migration |
-| `LegacyStyleExamples.cs` | IDE0161 file-scoped namespace, IDE0065, IDE0005, IDE0003, IDE0004, IDE0034, IDE0036, IDE0037, IDE0040, IDE0047, IDE0049 |
+| `Design/` | CA1000, CA1002, CA1024, CA1051, CA1052 |
+| `Documentation/` | CA1200 |
+| `Globalization/` | CA1304, CA1305, CA1307, CA1309, CA1310, CA1311 |
+| `Interoperability/` | CA1401, CA1416, SYSLIB1054 |
+| `Maintainability/` | CA1507, CA1508, CA1510 / CA1511 / CA1512 / CA1513 (`GuardClauseExamples`) |
+| `Naming/` | CA1707, CA1710, CA1716, CA1720 |
+| `Performance/` | CA1805, CA1822, CA1825, CA1829, CA1834, CA1847, CA1860, CA1861, CA1862 |
+| `Portability/` | CA1418 |
+| `Reliability/` | CA2007, CA2008, CA2013, CA2016 |
+| `Security/` | CA5350, CA5351, CA5394 |
+| `Usage/` | CA2200, CA2201, CA2208, CA2211, CA2214, CA2227, CA2241, CA2249 |
+
+Code quality rules are set to `suggestion` in `.editorconfig`, like the style rules. To see a whole category in the build output, use `dotnet_analyzer_diagnostic.category-Performance.severity = warning`.
 
 ## Caveats
 
 - Which quick actions appear depends on your Visual Studio / SDK version. The `field`, `?.=` and `Lock` suggestions in particular need a current VS 2026 build; if one doesn't show up, apply it by hand.
 - IDE0005 (unnecessary usings) only reports on build because `GenerateDocumentationFile` is on in the `.csproj`.
 - Some fixes interact. For example, applying IDE0290 (primary constructor) on a class that also has IDE0016 / CA1510 guard code changes what the other suggestions look like. Apply them one at a time and rebuild.
+- IDE0079 (unnecessary suppression) only reports inside the IDE, not in `dotnet build`.
+- IDE2000 / IDE2001 / IDE2003 are experimental formatting rules and may change or disappear in a later SDK.
+- Several examples trigger more than one rule (for example a null check that is also CA1510). The `// REFACTOR` comment names the rule the example is about.

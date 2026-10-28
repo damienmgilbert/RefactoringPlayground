@@ -1,4 +1,4 @@
-namespace RefactoringPlayground.Examples;
+namespace RefactoringPlayground.CodeStyle.NullChecking;
 
 public class NullHandlingExamples
 {

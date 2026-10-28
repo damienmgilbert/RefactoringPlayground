@@ -1,4 +1,4 @@
-namespace RefactoringPlayground.Examples;
+namespace RefactoringPlayground.CodeStyle.Members;
 
 public interface IOrderRepository
 {

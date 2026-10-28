@@ -1,4 +1,4 @@
-namespace RefactoringPlayground.Examples;
+namespace RefactoringPlayground.CodeStyle.ExpressionLevel;
 
 public delegate bool TryParser<T>(string text, out T result);
 

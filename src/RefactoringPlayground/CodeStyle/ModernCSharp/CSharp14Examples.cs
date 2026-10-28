@@ -1,4 +1,4 @@
-namespace RefactoringPlayground.Examples;
+namespace RefactoringPlayground.CodeStyle.ModernCSharp;
 
 public class CSharp14Examples
 {

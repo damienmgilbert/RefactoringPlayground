@@ -109,7 +109,9 @@ dotnet_style_prefer_simplified_interpolation = true:suggestion
 csharp_style_prefer_index_operator = true:suggestion
 csharp_style_prefer_range_operator = true:suggestion
 csharp_prefer_simple_using_statement = true:suggestion
+# true = always use braces, even for a one-line body (when_multiline and never are the alternatives).
 csharp_prefer_braces = true:suggestion
+dotnet_style_prefer_foreach_explicit_cast_in_source = when_strongly_typed:suggestion
 dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity:suggestion
 dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity:suggestion
 dotnet_style_parentheses_in_other_binary_operators = always_for_clarity:suggestion
@@ -127,6 +129,9 @@ dotnet_diagnostic.IDE0075.severity = suggestion
 dotnet_diagnostic.IDE0082.severity = suggestion
 dotnet_diagnostic.IDE0100.severity = suggestion
 dotnet_diagnostic.IDE0120.severity = suggestion
+dotnet_diagnostic.IDE0121.severity = suggestion
+dotnet_diagnostic.IDE0220.severity = suggestion
+dotnet_diagnostic.IDE0280.severity = suggestion
 
 #### Class structure ####
 csharp_style_prefer_primary_constructors = true:suggestion
@@ -172,3 +177,166 @@ dotnet_diagnostic.CA1510.severity = suggestion
 dotnet_diagnostic.CA1511.severity = suggestion
 dotnet_diagnostic.CA1512.severity = suggestion
 dotnet_diagnostic.CA1513.severity = suggestion
+
+#### Unnecessary code ####
+dotnet_code_quality_unused_parameters = all:suggestion
+csharp_style_unused_value_expression_statement_preference = discard_variable:suggestion
+dotnet_remove_unnecessary_suppression_exclusions = none
+dotnet_diagnostic.IDE0051.severity = suggestion
+dotnet_diagnostic.IDE0052.severity = suggestion
+dotnet_diagnostic.IDE0058.severity = suggestion
+dotnet_diagnostic.IDE0060.severity = suggestion
+dotnet_diagnostic.IDE0079.severity = suggestion
+
+#### Namespaces ####
+dotnet_style_namespace_match_folder = true:suggestion
+dotnet_diagnostic.IDE0130.severity = suggestion
+
+#### Formatting and wrapping ####
+# IDE0055 reports every formatting option below. Apply with: dotnet format whitespace
+csharp_preserve_single_line_statements = false
+csharp_preserve_single_line_blocks = false
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+csharp_indent_case_contents = true
+csharp_indent_switch_labels = true
+csharp_space_after_keywords_in_control_flow_statements = true
+csharp_space_between_method_declaration_parameter_list_parentheses = false
+csharp_space_between_method_call_parameter_list_parentheses = false
+csharp_space_around_binary_operators = before_and_after
+dotnet_diagnostic.IDE0055.severity = suggestion
+# Experimental blank-line and embedded-statement rules (both the option and the severity need to be set).
+dotnet_style_allow_multiple_blank_lines_experimental = false:suggestion
+csharp_style_allow_embedded_statements_on_same_line_experimental = false:suggestion
+dotnet_style_allow_statement_immediately_after_block_experimental = false:suggestion
+dotnet_diagnostic.IDE2000.severity = suggestion
+dotnet_diagnostic.IDE2001.severity = suggestion
+dotnet_diagnostic.IDE2003.severity = suggestion
+
+#### Naming rules (IDE1006) ####
+dotnet_diagnostic.IDE1006.severity = suggestion
+
+dotnet_naming_rule.interfaces_begin_with_i.severity = suggestion
+dotnet_naming_rule.interfaces_begin_with_i.symbols = interfaces
+dotnet_naming_rule.interfaces_begin_with_i.style = begins_with_i
+
+dotnet_naming_rule.constants_are_pascal_case.severity = suggestion
+dotnet_naming_rule.constants_are_pascal_case.symbols = constants
+dotnet_naming_rule.constants_are_pascal_case.style = pascal_case
+
+dotnet_naming_rule.private_fields_are_underscore_camel_case.severity = suggestion
+dotnet_naming_rule.private_fields_are_underscore_camel_case.symbols = private_fields
+dotnet_naming_rule.private_fields_are_underscore_camel_case.style = underscore_camel_case
+
+dotnet_naming_rule.async_methods_end_in_async.severity = suggestion
+dotnet_naming_rule.async_methods_end_in_async.symbols = async_methods
+dotnet_naming_rule.async_methods_end_in_async.style = ends_with_async
+
+dotnet_naming_rule.parameters_and_locals_are_camel_case.severity = suggestion
+dotnet_naming_rule.parameters_and_locals_are_camel_case.symbols = parameters_and_locals
+dotnet_naming_rule.parameters_and_locals_are_camel_case.style = camel_case
+
+dotnet_naming_rule.members_and_types_are_pascal_case.severity = suggestion
+dotnet_naming_rule.members_and_types_are_pascal_case.symbols = members_and_types
+dotnet_naming_rule.members_and_types_are_pascal_case.style = pascal_case
+
+dotnet_naming_symbols.interfaces.applicable_kinds = interface
+dotnet_naming_symbols.constants.applicable_kinds = field
+dotnet_naming_symbols.constants.required_modifiers = const
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+dotnet_naming_symbols.async_methods.applicable_kinds = method
+dotnet_naming_symbols.async_methods.required_modifiers = async
+dotnet_naming_symbols.parameters_and_locals.applicable_kinds = parameter, local
+dotnet_naming_symbols.members_and_types.applicable_kinds = class, struct, enum, property, method, event, delegate
+dotnet_naming_symbols.members_and_types.applicable_accessibilities = *
+
+dotnet_naming_style.begins_with_i.required_prefix = I
+dotnet_naming_style.begins_with_i.capitalization = pascal_case
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+dotnet_naming_style.camel_case.capitalization = camel_case
+dotnet_naming_style.underscore_camel_case.required_prefix = _
+dotnet_naming_style.underscore_camel_case.capitalization = camel_case
+dotnet_naming_style.ends_with_async.required_suffix = Async
+dotnet_naming_style.ends_with_async.capitalization = pascal_case
+
+# ---------------------------------------------------------------------------
+# Code quality rules (CAxxxx). The folders under src/RefactoringPlayground/CodeQuality
+# match the rule categories. Many of these are off by default, so each one is
+# switched on here at "suggestion".
+#   Whole category:  dotnet_analyzer_diagnostic.category-Performance.severity = warning
+# ---------------------------------------------------------------------------
+
+# Report public members too (the default is non-public members only).
+dotnet_code_quality.CA1822.api_surface = all
+dotnet_code_quality.CA1805.api_surface = all
+
+#### Design ####
+dotnet_diagnostic.CA1000.severity = suggestion
+dotnet_diagnostic.CA1002.severity = suggestion
+dotnet_diagnostic.CA1024.severity = suggestion
+dotnet_diagnostic.CA1051.severity = suggestion
+dotnet_diagnostic.CA1052.severity = suggestion
+
+#### Documentation ####
+dotnet_diagnostic.CA1200.severity = suggestion
+
+#### Globalization ####
+dotnet_diagnostic.CA1304.severity = suggestion
+dotnet_diagnostic.CA1305.severity = suggestion
+dotnet_diagnostic.CA1307.severity = suggestion
+dotnet_diagnostic.CA1309.severity = suggestion
+dotnet_diagnostic.CA1310.severity = suggestion
+dotnet_diagnostic.CA1311.severity = suggestion
+
+#### Interoperability ####
+dotnet_diagnostic.CA1401.severity = suggestion
+dotnet_diagnostic.CA1416.severity = suggestion
+dotnet_diagnostic.SYSLIB1054.severity = suggestion
+
+#### Maintainability ####
+dotnet_diagnostic.CA1507.severity = suggestion
+dotnet_diagnostic.CA1508.severity = suggestion
+
+#### Naming ####
+dotnet_diagnostic.CA1707.severity = suggestion
+dotnet_diagnostic.CA1710.severity = suggestion
+dotnet_diagnostic.CA1716.severity = suggestion
+dotnet_diagnostic.CA1720.severity = suggestion
+
+#### Performance ####
+dotnet_diagnostic.CA1805.severity = suggestion
+dotnet_diagnostic.CA1822.severity = suggestion
+dotnet_diagnostic.CA1825.severity = suggestion
+dotnet_diagnostic.CA1829.severity = suggestion
+dotnet_diagnostic.CA1834.severity = suggestion
+dotnet_diagnostic.CA1847.severity = suggestion
+dotnet_diagnostic.CA1860.severity = suggestion
+dotnet_diagnostic.CA1861.severity = suggestion
+dotnet_diagnostic.CA1862.severity = suggestion
+
+#### Portability and compatibility ####
+dotnet_diagnostic.CA1418.severity = suggestion
+
+#### Reliability ####
+dotnet_diagnostic.CA2007.severity = suggestion
+dotnet_diagnostic.CA2008.severity = suggestion
+dotnet_diagnostic.CA2013.severity = suggestion
+dotnet_diagnostic.CA2016.severity = suggestion
+
+#### Security ####
+dotnet_diagnostic.CA5350.severity = suggestion
+dotnet_diagnostic.CA5351.severity = suggestion
+dotnet_diagnostic.CA5394.severity = suggestion
+
+#### Usage ####
+dotnet_diagnostic.CA2200.severity = suggestion
+dotnet_diagnostic.CA2201.severity = suggestion
+dotnet_diagnostic.CA2208.severity = suggestion
+dotnet_diagnostic.CA2211.severity = suggestion
+dotnet_diagnostic.CA2214.severity = suggestion
+dotnet_diagnostic.CA2227.severity = suggestion
+dotnet_diagnostic.CA2241.severity = suggestion
+dotnet_diagnostic.CA2249.severity = suggestion

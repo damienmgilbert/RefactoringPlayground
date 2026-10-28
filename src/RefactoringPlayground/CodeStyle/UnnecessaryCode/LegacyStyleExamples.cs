@@ -2,7 +2,7 @@ using System.Text;
 using System.Collections.Generic;
 
 // REFACTOR [IDE0161]: Convert to file-scoped namespace (this file uses a block-scoped one on purpose)
-namespace RefactoringPlayground.Examples
+namespace RefactoringPlayground.CodeStyle.UnnecessaryCode
 {
     // REFACTOR [IDE0065]: Move 'using' directive outside the namespace
     using System.Globalization;

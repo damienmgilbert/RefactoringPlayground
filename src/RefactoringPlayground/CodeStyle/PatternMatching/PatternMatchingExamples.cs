@@ -1,4 +1,4 @@
-namespace RefactoringPlayground.Examples;
+namespace RefactoringPlayground.CodeStyle.PatternMatching;
 
 /// <summary>
 /// Every method here is intentionally written the "old" way.

@@ -1,4 +1,4 @@
-namespace RefactoringPlayground.Examples;
+namespace RefactoringPlayground.CodeStyle.ExpressionLevel;
 
 public static class InitializationExamples
 {

@@ -1,4 +1,6 @@
-namespace RefactoringPlayground.Examples;
+using RefactoringPlayground.CodeStyle.Members;
+
+namespace RefactoringPlayground.CodeQuality.Maintainability;
 
 public static class GuardClauseExamples
 {
