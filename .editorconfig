@@ -1,0 +1,174 @@
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+[*.{csproj,props,targets,slnx,xml,json}]
+indent_size = 2
+
+[*.cs]
+indent_size = 4
+
+# ---------------------------------------------------------------------------
+# Every rule the examples exercise is set to "suggestion" so it shows up as a
+# light bulb / dotted underline in Visual Studio 2026 without failing the build.
+#   Apply one rule everywhere:  dotnet format style --diagnostics IDE0066 --severity info
+#   Apply all of them:          dotnet format style --severity info
+#   Make one fail the build:    change "suggestion" to "warning" (or "error")
+# ---------------------------------------------------------------------------
+
+#### Usings and namespaces ####
+dotnet_sort_system_directives_first = true
+csharp_using_directive_placement = outside_namespace:suggestion
+csharp_style_namespace_declarations = file_scoped:suggestion
+dotnet_diagnostic.IDE0005.severity = suggestion
+dotnet_diagnostic.IDE0065.severity = suggestion
+dotnet_diagnostic.IDE0161.severity = suggestion
+
+#### Pattern matching and switch ####
+csharp_style_prefer_switch_expression = true:suggestion
+csharp_style_prefer_pattern_matching = true:suggestion
+csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
+csharp_style_pattern_matching_over_is_with_cast_check = true:suggestion
+csharp_style_prefer_not_pattern = true:suggestion
+csharp_style_prefer_extended_property_pattern = true:suggestion
+csharp_style_prefer_null_check_over_type_check = true:suggestion
+dotnet_diagnostic.IDE0019.severity = suggestion
+dotnet_diagnostic.IDE0020.severity = suggestion
+dotnet_diagnostic.IDE0038.severity = suggestion
+dotnet_diagnostic.IDE0066.severity = suggestion
+dotnet_diagnostic.IDE0078.severity = suggestion
+dotnet_diagnostic.IDE0083.severity = suggestion
+dotnet_diagnostic.IDE0150.severity = suggestion
+dotnet_diagnostic.IDE0170.severity = suggestion
+
+#### Null handling ####
+dotnet_style_coalesce_expression = true:suggestion
+dotnet_style_null_propagation = true:suggestion
+dotnet_style_prefer_is_null_check_over_reference_equality_method = true:suggestion
+csharp_style_throw_expression = true:suggestion
+csharp_style_conditional_delegate_call = true:suggestion
+dotnet_diagnostic.IDE0016.severity = suggestion
+dotnet_diagnostic.IDE0029.severity = suggestion
+dotnet_diagnostic.IDE0030.severity = suggestion
+dotnet_diagnostic.IDE0031.severity = suggestion
+dotnet_diagnostic.IDE0041.severity = suggestion
+dotnet_diagnostic.IDE0074.severity = suggestion
+dotnet_diagnostic.IDE0270.severity = suggestion
+dotnet_diagnostic.IDE1005.severity = suggestion
+
+#### Assignments, variables and deconstruction ####
+dotnet_style_prefer_compound_assignment = true:suggestion
+csharp_style_prefer_tuple_swap = true:suggestion
+csharp_style_inlined_variable_declaration = true:suggestion
+csharp_style_deconstructed_variable_declaration = true:suggestion
+csharp_style_unused_value_assignment_preference = discard_variable:suggestion
+dotnet_style_prefer_inferred_anonymous_type_member_names = true:suggestion
+dotnet_diagnostic.IDE0018.severity = suggestion
+dotnet_diagnostic.IDE0034.severity = suggestion
+dotnet_diagnostic.IDE0037.severity = suggestion
+dotnet_diagnostic.IDE0042.severity = suggestion
+dotnet_diagnostic.IDE0054.severity = suggestion
+dotnet_diagnostic.IDE0059.severity = suggestion
+dotnet_diagnostic.IDE0180.severity = suggestion
+
+#### Initialization and collections ####
+dotnet_style_object_initializer = true:suggestion
+dotnet_style_collection_initializer = true:suggestion
+dotnet_style_prefer_collection_expression = when_types_loosely_match:suggestion
+csharp_style_implicit_object_creation_when_type_is_apparent = true:suggestion
+dotnet_diagnostic.IDE0017.severity = suggestion
+dotnet_diagnostic.IDE0028.severity = suggestion
+dotnet_diagnostic.IDE0090.severity = suggestion
+dotnet_diagnostic.IDE0300.severity = suggestion
+dotnet_diagnostic.IDE0301.severity = suggestion
+dotnet_diagnostic.IDE0305.severity = suggestion
+
+#### Delegates and lambdas ####
+csharp_style_prefer_local_over_anonymous_function = true:suggestion
+csharp_prefer_static_local_function = true:suggestion
+csharp_prefer_static_anonymous_function = true:suggestion
+csharp_style_expression_bodied_lambdas = true:suggestion
+csharp_style_prefer_method_group_conversion = true:suggestion
+csharp_style_prefer_implicitly_typed_lambda_expression = true:suggestion
+dotnet_diagnostic.IDE0039.severity = suggestion
+dotnet_diagnostic.IDE0053.severity = suggestion
+dotnet_diagnostic.IDE0062.severity = suggestion
+dotnet_diagnostic.IDE0200.severity = suggestion
+dotnet_diagnostic.IDE0320.severity = suggestion
+dotnet_diagnostic.IDE0350.severity = suggestion
+
+#### Conditionals, LINQ and simplification ####
+dotnet_style_prefer_conditional_expression_over_assignment = true:suggestion
+dotnet_style_prefer_conditional_expression_over_return = true:suggestion
+dotnet_style_prefer_simplified_boolean_expressions = true:suggestion
+dotnet_style_prefer_simplified_interpolation = true:suggestion
+csharp_style_prefer_index_operator = true:suggestion
+csharp_style_prefer_range_operator = true:suggestion
+csharp_prefer_simple_using_statement = true:suggestion
+csharp_prefer_braces = true:suggestion
+dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity:suggestion
+dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity:suggestion
+dotnet_style_parentheses_in_other_binary_operators = always_for_clarity:suggestion
+dotnet_style_parentheses_in_other_operators = never_if_unnecessary:suggestion
+dotnet_diagnostic.IDE0011.severity = suggestion
+dotnet_diagnostic.IDE0045.severity = suggestion
+dotnet_diagnostic.IDE0046.severity = suggestion
+dotnet_diagnostic.IDE0047.severity = suggestion
+dotnet_diagnostic.IDE0048.severity = suggestion
+dotnet_diagnostic.IDE0056.severity = suggestion
+dotnet_diagnostic.IDE0057.severity = suggestion
+dotnet_diagnostic.IDE0063.severity = suggestion
+dotnet_diagnostic.IDE0071.severity = suggestion
+dotnet_diagnostic.IDE0075.severity = suggestion
+dotnet_diagnostic.IDE0082.severity = suggestion
+dotnet_diagnostic.IDE0100.severity = suggestion
+dotnet_diagnostic.IDE0120.severity = suggestion
+
+#### Class structure ####
+csharp_style_prefer_primary_constructors = true:suggestion
+dotnet_style_prefer_auto_properties = true:suggestion
+dotnet_style_readonly_field = true:suggestion
+csharp_style_expression_bodied_methods = when_on_single_line:suggestion
+csharp_style_expression_bodied_constructors = when_on_single_line:suggestion
+csharp_style_expression_bodied_properties = true:suggestion
+csharp_style_expression_bodied_accessors = true:suggestion
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:suggestion
+csharp_preferred_modifier_order = public,private,protected,internal,file,static,extern,new,virtual,abstract,sealed,override,readonly,unsafe,required,volatile,async:suggestion
+dotnet_diagnostic.IDE0003.severity = suggestion
+dotnet_diagnostic.IDE0004.severity = suggestion
+dotnet_diagnostic.IDE0021.severity = suggestion
+dotnet_diagnostic.IDE0022.severity = suggestion
+dotnet_diagnostic.IDE0025.severity = suggestion
+dotnet_diagnostic.IDE0027.severity = suggestion
+dotnet_diagnostic.IDE0032.severity = suggestion
+dotnet_diagnostic.IDE0036.severity = suggestion
+dotnet_diagnostic.IDE0040.severity = suggestion
+dotnet_diagnostic.IDE0044.severity = suggestion
+dotnet_diagnostic.IDE0049.severity = suggestion
+dotnet_diagnostic.IDE0290.severity = suggestion
+
+#### this. and predefined types ####
+dotnet_style_qualification_for_field = false:suggestion
+dotnet_style_qualification_for_property = false:suggestion
+dotnet_style_qualification_for_method = false:suggestion
+dotnet_style_qualification_for_event = false:suggestion
+dotnet_style_predefined_type_for_locals_parameters_members = true:suggestion
+dotnet_style_predefined_type_for_member_access = true:suggestion
+
+#### C# 13 / C# 14 ####
+csharp_prefer_system_threading_lock = true:suggestion
+csharp_style_prefer_unbound_generic_type_in_nameof = true:suggestion
+csharp_style_prefer_simple_property_accessors = true:suggestion
+dotnet_diagnostic.IDE0330.severity = suggestion
+dotnet_diagnostic.IDE0340.severity = suggestion
+dotnet_diagnostic.IDE0360.severity = suggestion
+
+#### Guard clauses (throw helpers) ####
+dotnet_diagnostic.CA1510.severity = suggestion
+dotnet_diagnostic.CA1511.severity = suggestion
+dotnet_diagnostic.CA1512.severity = suggestion
+dotnet_diagnostic.CA1513.severity = suggestion
